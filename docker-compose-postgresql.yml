@@ -1,0 +1,12 @@
+version: '3.7'
+services:
+ db:
+    image: postgres:14.0
+    restart: always
+    environment:
+      - POSTGRES_RANDOM_ROOT_PASSWORD=yes
+      - POSTGRES_DB=app
+      - POSTGRES_USER=tata1919
+      - POSTGRES_PASSWORD=pass1919
+    ports:
+      - '5432:5432'
