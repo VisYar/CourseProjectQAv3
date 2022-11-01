@@ -1,0 +1,52 @@
+image: Ubuntu
+
+stack: jdk 11
+
+branches:
+  only:
+    - master
+
+build: off
+
+environment:
+  matrix:
+    - db: MySQL
+
+    - db: PostgreSQL
+
+for:
+  -
+    matrix:
+      only:
+        - db: MySQL
+
+    install:
+      - sudo curl -SL https://github.com/docker/compose/releases/download/v2.12.2/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
+      - sudo chmod +x /usr/local/bin/docker-compose
+      - sudo docker-compose -f /home/appveyor/netology/CourseProjectQAv3/docker-compose.yml up -d
+      - sleep 20
+      - java -jar ./artifacts/aqa-shop.jar --spring.datasource.url=jdbc:mysql://localhost:3366/app &
+      - sleep 20
+
+    build_script:
+      - chmod +x gradlew
+      - ./gradlew test --info -Dselenide.headless=true -DdbUrl=jdbc:mysql://localhost:3366/app
+      - sudo docker-compose down
+
+  -
+    matrix:
+      only:
+        - db: PostgreSQL
+
+    install:
+      - sudo curl -SL https://github.com/docker/compose/releases/download/v2.12.2/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
+      - sudo chmod +x /usr/local/bin/docker-compose
+      - sudo docker-compose -f /home/appveyor/netology/CourseProjectQAv3/docker-compose.yml up -d
+      - sleep 20
+      - java -jar ./artifacts/aqa-shop.jar --spring.datasource.url=jdbc:postgresql://localhost:5432/app &
+      - sleep 20
+
+    build_script:
+      - chmod +x gradlew
+      - ./gradlew test --info -Dselenide.headless=true -DdbUrl=jdbc:postgresql://localhost:5432/app
+      - sudo docker-compose down
