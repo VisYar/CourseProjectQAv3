@@ -22,7 +22,6 @@ public class SQL {
     public static String user = System.getProperty("db.user");
     public static String password = System.getProperty("db.password");
 
-
     @SneakyThrows
     public static Connection connection() {
         Connection conn = null;
@@ -62,6 +61,14 @@ public class SQL {
         }
         return number;
     }
+
+    @SneakyThrows
+    public static int getAmount() {
+        String amount = "SELECT amount FROM payment_entity ORDER BY created DESC LIMIT 1;";
+        var amountPay = runner.query(connection(), amount, new ScalarHandler<>()).toString();
+        return Integer.parseInt(amountPay);
+    }
+    
 
     @Data
     @NoArgsConstructor

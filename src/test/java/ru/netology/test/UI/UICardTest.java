@@ -1,5 +1,4 @@
 package ru.netology.test.UI;
-import static com.codeborne.selenide.Selenide.$;
 
 import ru.netology.data.SQL;
 import ru.netology.page.Main;
@@ -7,13 +6,12 @@ import ru.netology.page.PaymentCard;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selectors;
 
-import static com.codeborne.selenide.Selenide.open;
-
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.selenide.AllureSelenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import org.junit.jupiter.api.*;
 
+import static com.codeborne.selenide.Selenide.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.time.Duration;
@@ -105,6 +103,14 @@ public class UICardTest {
         String statusAfterServer = statusAfterServer();
         checkNumberPayment(initialNumberPayment, 1);
         assertEquals("APPROVED", statusAfterServer);
+    }
+
+    @Test
+    @DisplayName("Payment approved card Amount")
+    public void shouldAmountPaymentApprovedCard() {
+        var card = choicePaymentCard();
+        card.approvedNumberCard();
+        assertEquals("45000", SQL.getAmount());
     }
 
     @Test

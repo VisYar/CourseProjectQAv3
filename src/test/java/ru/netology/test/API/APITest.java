@@ -60,7 +60,6 @@ public class APITest {
         assertTrue(payment.get(0).getStatus().equalsIgnoreCase("APPROVED"));
         assertEquals(payment.get(0).getTransaction_id(), order.get(0).getPayment_id());
         assertNull(order.get(0).getCredit_id());
-//        assertEquals("APPROVED", status);
     }
 
     @Test
@@ -85,7 +84,6 @@ public class APITest {
         assertTrue(payment.get(0).getStatus().equalsIgnoreCase("DECLINED"));
         assertEquals(payment.get(0).getTransaction_id(), order.get(0).getPayment_id());
         assertNull(order.get(0).getCredit_id());
- //       assertEquals("DECLINED", status);
     }
 
     @Test
