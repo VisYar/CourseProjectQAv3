@@ -49,6 +49,11 @@ public class UICardTest {
         open("http://localhost:8080");
     }
 
+    @AfterEach
+    void clear() {
+        SQL.clear();
+    }
+
     long numberFromPayment() {
         SQL sql = new SQL();
         return sql.getNumberPaymentCard();

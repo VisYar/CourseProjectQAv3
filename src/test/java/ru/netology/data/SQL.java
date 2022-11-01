@@ -1,9 +1,6 @@
 package ru.netology.data;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.SneakyThrows;
+import lombok.*;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
@@ -35,6 +32,15 @@ public class SQL {
             conn = DriverManager.getConnection(System.getProperty("db.urlpostgresql"), user, password);
         }
         return conn;
+    }
+    @SneakyThrows
+    public static void clear() {
+        val deletePayment = "DELETE FROM payment_entity;";
+        val deleteCredit = "DELETE FROM credit_request_entity;";
+        val deleteOrder = "DELETE FROM order_entity;";
+        runner.update(connection(), deletePayment);
+        runner.update(connection(), deleteCredit);
+        runner.update(connection(), deleteOrder);
     }
 
     @SneakyThrows
