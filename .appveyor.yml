@@ -41,7 +41,7 @@ for:
     install:
       - sudo curl -SL https://github.com/docker/compose/releases/download/v2.12.2/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
       - sudo chmod +x /usr/local/bin/docker-compose
-      - sudo docker-compose -f /home/appveyor/netology/CourseProjectQAv3/docker-compose.yml up -d
+      - sudo docker-compose -f /home/appveyor/netology/CourseProjectQAv3/docker-compose-postgresql.yml up -d
       - sleep 20
       - java -jar ./artifacts/aqa-shop.jar --spring.datasource.url=jdbc:postgresql://localhost:5432/app &
       - sleep 20
