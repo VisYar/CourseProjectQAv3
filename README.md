@@ -1,5 +1,5 @@
 
-[![Build status](https://ci.appveyor.com/api/projects/status/de09oi7nl3ttggvn?svg=true)](https://ci.appveyor.com/project/VisYar/courseprojectqav3)
+[![Build status](https://ci.appveyor.com/api/projects/status/9fu3y455tj6e6p0n?svg=true)](https://ci.appveyor.com/project/VisYar/courseprojectqav3-af5bg)
 
 # Курсовой проект по модулю «Автоматизация тестирования» для профессии «Инженер по тестированию»
 
