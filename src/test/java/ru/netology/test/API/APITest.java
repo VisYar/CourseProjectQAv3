@@ -56,7 +56,7 @@ public class APITest {
         assertEquals(1, payment.size());
         assertEquals(0, credit.size());
         assertEquals(1, order.size());
-
+        assertEquals("APPROVED", status);
         assertTrue(payment.get(0).getStatus().equalsIgnoreCase("APPROVED"));
         assertEquals(payment.get(0).getTransaction_id(), order.get(0).getPayment_id());
         assertNull(order.get(0).getCredit_id());
@@ -80,7 +80,7 @@ public class APITest {
         assertEquals(1, payment.size());
         assertEquals(0, credit.size());
         assertEquals(1, order.size());
-
+        assertEquals("DECLINED", status);
         assertTrue(payment.get(0).getStatus().equalsIgnoreCase("DECLINED"));
         assertEquals(payment.get(0).getTransaction_id(), order.get(0).getPayment_id());
         assertNull(order.get(0).getCredit_id());

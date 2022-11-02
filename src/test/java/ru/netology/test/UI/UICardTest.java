@@ -106,14 +106,6 @@ public class UICardTest {
     }
 
     @Test
-    @DisplayName("Payment approved card Amount")
-    public void shouldAmountPaymentApprovedCard() {
-        var card = choicePaymentCard();
-        card.approvedNumberCard();
-        assertEquals("45000", SQL.getAmount());
-    }
-
-    @Test
     @DisplayName("Payment declined card")
     public void shouldUnsuccessfulPaymentDeclinedCard() {
         long initialNumberPayment = numberFromPayment();
