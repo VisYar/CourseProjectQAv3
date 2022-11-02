@@ -4,8 +4,22 @@ services:
     image: mysql:8.0
     ports:
       - '3366:3306'
+    volumes:
+      - ./data:/var/lib/db
     environment:
       - MYSQL_RANDOM_ROOT_PASSWORD=yes
       - MYSQL_PASSWORD=pass1919
       - MYSQL_USER=tata1919
       - MYSQL_DATABASE=app
+
+  postgresql:
+    image: postgres:14.0
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./data:/var/lib/db
+    environment:
+      - POSTGRES_RANDOM_ROOT_PASSWORD=yes
+      - POSTGRES_DB=app
+      - POSTGRES_USER=tata1919
+      - POSTGRES_PASSWORD=pass1919
