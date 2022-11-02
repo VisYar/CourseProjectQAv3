@@ -1,5 +1,6 @@
 
 [![Build status](https://ci.appveyor.com/api/projects/status/9fu3y455tj6e6p0n?svg=true)](https://ci.appveyor.com/project/VisYar/courseprojectqav3-af5bg)
+[![CourseProjectQAv3](https://github.com/VisYar/CourseProjectQAv3/actions/workflows/gradle.yml/badge.svg)](https://github.com/VisYar/CourseProjectQAv3/actions/workflows/gradle.yml)
 
 # Курсовой проект по модулю «Автоматизация тестирования» для профессии «Инженер по тестированию»
 
