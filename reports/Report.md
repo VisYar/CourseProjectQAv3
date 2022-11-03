@@ -19,7 +19,7 @@
 
 ### Тестирование
 
-По итогам сформирован ![отчет с использованием Allure Report](https://github.com/VisYar/CourseProjectQAv3/blob/master/reports/Allure%20Report.png)
+По итогам сформирован отчет с использованием Allure Report ![отчет с использованием Allure Report](https://github.com/VisYar/CourseProjectQAv3/blob/master/reports/Allure%20Report.png)
 
 ### Общие итоги:
 
